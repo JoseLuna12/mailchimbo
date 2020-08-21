@@ -1,6 +1,8 @@
 var nodemailer = require('nodemailer');
 
 let Email = async function(req, res){
+
+    let usuario = req.params.email;
     
 
     let transporter = nodemailer.createTransport({
@@ -16,10 +18,10 @@ let Email = async function(req, res){
 
         let info = await transporter.sendMail({
             from: '"Fred Foo 👻" <prueba@terralunalodge.com>', // sender address
-            to: "joaco.alonso.garcia@gmail.com, pepejose@outlook.com", // list of receivers
+            to: usuario, // list of receivers
             subject: "Hello ✔", // Subject line
-            text: "Hello world?", // plain text body
-            html: "<b>Hello world?</b>", // html body
+            text: "Bienvenido a Terraluna", // plain text body
+            html: "<b>Gracias por suscribirte</b>", // html body
           });
           console.log(info)
           res.send(info)
