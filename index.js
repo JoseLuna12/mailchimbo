@@ -2,11 +2,11 @@ const express = require('express')
 const app = express()
 const port = 3000
 
-app.get('/', (req, res) => {
-  res.send('Hello World!')
-})
+var mailController = require("./controllers/mailing")
 
-app.get('/noti', (req, res) => {
+app.get('/', mailController.Mailchimp);
+
+app.post('/notiMailChimp', (req, res) => {
     res.send('Hello World!')
 })
 
